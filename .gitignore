@@ -1,0 +1,7 @@
+**/a.out
+**/_results/
+**/*.gc*
+**/tis_report.html
+**/caesar
+**/.tis-kernel/
+**/.vscode/settings.json
