@@ -12,23 +12,6 @@
             "../test_driver.c"
         ],
         "cpp-extra-args": "-I.",
-        "name": "positive-and-negative-shift",
-        "val-profile": "interpreter",
-        "main": "main"
-    },
-    {
-        "machdep": "gcc_x86_64",
-        "val": "true",
-        "slevel": 1000,
-        "val-split-return-function": {
-            "caesar_encrypt": "full",
-            "caesar_decrypt": "full"
-        },
-        "files": [
-            "../caesar.c",
-            "../test_driver.c"
-        ],
-        "cpp-extra-args": "-I.",
         "name": "positive-shift",
         "val-profile": "interpreter",
         "main": "test1"
