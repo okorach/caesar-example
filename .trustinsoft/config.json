@@ -12,7 +12,6 @@
             "../test_driver.c"
         ],
         "cpp-extra-args": "-I.",
-        "tis-report": true,
         "name": "positive-and-negative-shift",
         "val-profile": "interpreter",
         "main": "main"
@@ -30,7 +29,6 @@
             "../test_driver.c"
         ],
         "cpp-extra-args": "-I.",
-        "tis-report": true,
         "name": "positive-shift",
         "val-profile": "interpreter",
         "main": "test1"
@@ -48,7 +46,6 @@
             "../test_driver.c"
         ],
         "cpp-extra-args": "-I.",
-        "tis-report": true,
         "name": "negative-shift",
         "val-profile": "interpreter",
         "main": "test2"
@@ -66,7 +63,6 @@
             "../test_driver.c"
         ],
         "cpp-extra-args": "-I.",
-        "tis-report": true,
         "name": "generalized-shift",
         "val-profile": "analyzer",
         "main": "test_generalized_int"
@@ -84,7 +80,6 @@
             "../test_driver.c"
         ],
         "cpp-extra-args": "-I.",
-        "tis-report": true,
         "name": "generalized-string",
         "val-profile": "analyzer",
         "main": "test_generalized_string"
