@@ -5,7 +5,7 @@
 
 /* Computes absolute value of a signed integer */
 
-int absolute_int(long x)
+long absolute_int(long x)
 {
     long abs_x;
     if (x < 0)
