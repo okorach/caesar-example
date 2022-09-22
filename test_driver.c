@@ -57,7 +57,7 @@ int test_generalized_int(void)
 
 int test_generalized_string(void)
 {
-    int any_shift;
+    long any_shift;
     // tis_make_unknown(&any_shift, sizeof(any_shift));
     any_shift = tis_interval(LONG_MIN + 1, LONG_MAX);
     char any_str[MAX_BUF+1];
