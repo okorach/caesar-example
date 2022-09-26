@@ -45,7 +45,7 @@
             "../caesar.c",
             "../test_driver.c"
         ],
-        "cpp-extra-args": "-I. -D LEVEL2=1",
+        "cpp-extra-args": "-I.",
         "name": "generalized-shift",
         "val-profile": "analyzer",
         "main": "test_generalized_int"
@@ -62,7 +62,7 @@
             "../caesar.c",
             "../test_driver.c"
         ],
-        "cpp-extra-args": "-I. -D LEVEL2=1 -D LEVEL2_STEP2=1",
+        "cpp-extra-args": "-I. -D EXCLUDE_INT_MIN=1",
         "name": "generalized-string",
         "val-profile": "analyzer",
         "main": "test_generalized_string"
