@@ -23,8 +23,8 @@ cov:
 
 tis_l1_run:
 	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS)$(FONT_RESET)"
-	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name positive-shift
-	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name negative-shift
+	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "1. positive-shift"
+	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "2. negative-shift"
 
 tis_l1_gui:
 	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) -gui$(FONT_RESET)"
@@ -33,26 +33,27 @@ tis_l1_gui:
 tis_l1: tis_l1_run report
 
 tis_l2_run:
-	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) -D LEVEL2=1$(FONT_RESET)"
-	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name generalized-shift -D LEVEL2=1
+	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) $(FONT_RESET)"
+	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "3. generalized-shift"
 
 tis_l2_report: tis_l2_run report
-	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) -D LEVEL2=1$(FONT_RESET)"
-	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name generalized-shift -D LEVEL2=1
+	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) $(FONT_RESET)"
+	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "3. generalized-shift"
+	
 
 tis_l2_gui: tis_l2_report
-	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) -D LEVEL2=1  $(TIS_OPTS) -tis-report -gui$(FONT_RESET)"
-	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name generalized-shift -D LEVEL2=1 -gui
+	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) -tis-report -gui$(FONT_RESET)"
+	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "3. generalized-shift" -gui
 
 tis_l2: tis_l2_gui
 
 tis_l2_step2_run:
-	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name generalized-string -D LEVEL2=1$(FONT_RESET)"
-	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name generalized-string -D LEVEL2=1 -D LEVEL2_STEP2=1
+	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name generalized-string$(FONT_RESET)"
+	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "4. generalized-string"
 
 tis_l2_step2_gui:
-	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name generalized-string -D LEVEL2=1 -gui$(FONT_RESET)"
-	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name generalized-string -D LEVEL2=1  -D LEVEL2_STEP2=1 -gui
+	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name generalized-string -gui$(FONT_RESET)"
+	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "4. generalized-string" -gui
 
 tis_l2_step2: tis_l2_step2_run report
 
@@ -64,6 +65,8 @@ report:
 
 break_build:
 	@! cat _results/*_results.json|jq '{status: .alarms.status}'|grep -H '"status": "NOT OK"'
+
+all: tis_l1 tis_l2_report tis_l2_step2 report
 
 clean:
 	@rm -rf a.out a.out.dSYM caesar caesar.dSYM *.gcov *.gcda *.gcno _results tis_report.html

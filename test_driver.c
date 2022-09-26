@@ -48,8 +48,11 @@ int test_generalized_int(void)
 {
     long any_shift;
     int ok;
+#ifdef EXCLUDE_INT_MIN
+    any_shift = tis_long_interval(INT_MIN + 1, INT_MAX);
+#else
     tis_make_unknown(&any_shift, sizeof(any_shift));
-    // any_shift = tis_long_interval(INT_MIN + 1, INT_MAX);
+#endif
     printf("\nTest 3: Generalization of shift to any 64 bits signed integer [%ld - %ld]\n", LONG_MIN, LONG_MAX);
     ok = gen_test(str, any_shift);
     return ok;
@@ -58,8 +61,11 @@ int test_generalized_int(void)
 int test_generalized_string(void)
 {
     long any_shift;
-    // tis_make_unknown(&any_shift, sizeof(any_shift));
+#ifdef EXCLUDE_INT_MIN
     any_shift = tis_long_interval(LONG_MIN + 1, LONG_MAX);
+#else
+    tis_make_unknown(&any_shift, sizeof(any_shift));
+#endif
     char any_str[MAX_BUF+1];
     printf("\nTest 4: Generalization of shift and generalization of string to any %d characters string\n", MAX_BUF);
 
@@ -75,14 +81,12 @@ int main(void)
     int ok;
     ok = test1();
     ok = ok && test2();
-
-#if defined LEVEL2 || defined LEVEL2_STEP2
+#ifdef __TRUSTINSOFT_ANALYZER__
+#ifdef LEVEL2
     ok = ok && test_generalized_int();
-#ifdef LEVEL2_STEP2
     ok = ok && test_generalized_string();
 #endif
 #endif
-
     if (ok) {
         printf("\nAll Tests successful\n\n");
         return 0;

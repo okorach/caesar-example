@@ -7,25 +7,27 @@
     },
     {
         "include": "tis-common.json",
-        "name": "positive-shift",
+        "name": "1. positive-shift",
         "val-profile": "interpreter",
         "main": "test1"
     },
     {
         "include": "tis-common.json",
-        "name": "negative-shift",
+        "name": "2. negative-shift",
         "val-profile": "interpreter",
         "main": "test2"
     },
     {
         "include": "tis-common.json",
-        "name": "generalized-shift",
+        "name": "3. generalized-shift",
+        "cpp-extra-args": "-I. -DLEVEL2",
         "val-profile": "analyzer",
         "main": "test_generalized_int"
     },
     {
         "include": "tis-common.json",
-        "name": "generalized-string",
+        "name": "4. generalized-string",
+        "cpp-extra-args": "-I. -DLEVEL2=1 -DEXCLUDE_INT_MIN=1",
         "val-profile": "analyzer",
         "main": "test_generalized_string"
     }
