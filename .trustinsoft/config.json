@@ -1,5 +1,6 @@
 [
     {
+        "val-profile": "interpreter",
         "machdep": "gcc_x86_64",
         "val": "true",
         "slevel": 1000,
@@ -13,10 +14,10 @@
         ],
         "cpp-extra-args": "-I.",
         "name": "positive-shift",
-        "val-profile": "interpreter",
         "main": "test1"
     },
     {
+        "val-profile": "interpreter",
         "machdep": "gcc_x86_64",
         "val": "true",
         "slevel": 1000,
@@ -30,10 +31,10 @@
         ],
         "cpp-extra-args": "-I.",
         "name": "negative-shift",
-        "val-profile": "interpreter",
         "main": "test2"
     },
     {
+        "val-profile": "analyzer",
         "machdep": "gcc_x86_64",
         "val": "true",
         "slevel": 1000,
@@ -47,10 +48,10 @@
         ],
         "cpp-extra-args": "-I.",
         "name": "generalized-shift",
-        "val-profile": "analyzer",
         "main": "test_generalized_int"
     },
     {
+        "val-profile": "analyzer",
         "machdep": "gcc_x86_64",
         "val": "true",
         "slevel": 10000,
@@ -64,7 +65,6 @@
         ],
         "cpp-extra-args": "-I. -D EXCLUDE_INT_MIN=1",
         "name": "generalized-string",
-        "val-profile": "analyzer",
         "main": "test_generalized_string"
     }
 ]
