@@ -5,7 +5,7 @@
 
 /* Computes absolute value of a signed integer */
 
-long absolute_int(long x)
+long absolute(long x)
 {
     long abs_x;
     if (x < 0)
@@ -17,7 +17,7 @@ long absolute_int(long x)
 
 char *caesar_encrypt(char *str, long shift)
 {
-    long abs_shift = absolute_int(shift) % NB_LTR;
+    long abs_shift = absolute(shift) % NB_LTR;
     int i = 0;
     char *buf = (char *)malloc(MAX_BUF+1);
 
@@ -41,7 +41,7 @@ char *caesar_encrypt(char *str, long shift)
 
 char *caesar_decrypt(char *str, long shift)
 {
-    long abs_shift = absolute_int(shift) % NB_LTR;
+    long abs_shift = absolute(shift) % NB_LTR;
     int i = 0;
     char *buf = (char *)malloc(MAX_BUF+1);
 
