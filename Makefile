@@ -22,7 +22,7 @@ cov:
 	@gcov caesar.c
 
 tis_l1_run:
-	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS)$(FONT_RESET)"
+	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) --interpreter $(FILES)$(FONT_RESET)"
 	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "1. positive-shift"
 	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "2. negative-shift"
 
@@ -33,26 +33,25 @@ tis_l1_gui:
 tis_l1: tis_l1_run report
 
 tis_l2_run:
-	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) $(FONT_RESET)"
+	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) -val $(FILES) $(FONT_RESET)"
 	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "3. generalized-shift"
 
 tis_l2_report: tis_l2_run report
 	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) $(FONT_RESET)"
 	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "3. generalized-shift"
-	
 
 tis_l2_gui: tis_l2_report
-	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) -tis-report -gui$(FONT_RESET)"
+	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) -val $(FILES) -gui$(FONT_RESET)"
 	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "3. generalized-shift" -gui
 
 tis_l2: tis_l2_gui
 
 tis_l2_step2_run:
-	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name generalized-string$(FONT_RESET)"
+	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) -val $(FILES)$(FONT_RESET)"
 	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "4. generalized-string"
 
 tis_l2_step2_gui:
-	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name generalized-string -gui$(FONT_RESET)"
+	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) -val $(FILES) -gui$(FONT_RESET)"
 	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "4. generalized-string" -gui
 
 tis_l2_step2: tis_l2_step2_run report
