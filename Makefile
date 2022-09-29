@@ -37,8 +37,6 @@ tis_l2_run:
 	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "3. generalized-shift"
 
 tis_l2_report: tis_l2_run report
-	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) $(FONT_RESET)"
-	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "3. generalized-shift"
 
 tis_l2_gui: tis_l2_report
 	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) -val $(FILES) -gui$(FONT_RESET)"
