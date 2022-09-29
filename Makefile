@@ -45,11 +45,11 @@ tis_l2_gui: tis_l2_report
 tis_l2: tis_l2_gui
 
 tis_l2_step2_run:
-	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) -val $(FILES)$(FONT_RESET)"
+	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) -val $(FILES)$(FONT_RESET)"
 	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "4. generalized-string"
 
 tis_l2_step2_gui:
-	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) $(TIS_OPTS) -val $(FILES) -gui$(FONT_RESET)"
+	@echo -e "$(FONT_CYAN)$(TIS_ANALYZER) -val $(FILES) -gui$(FONT_RESET)"
 	@$(TIS_ANALYZER) $(TIS_OPTS) -tis-config-select-by-name "4. generalized-string" -gui
 
 tis_l2_step2: tis_l2_step2_run report
