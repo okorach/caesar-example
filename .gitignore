@@ -5,3 +5,5 @@
 **/caesar
 **/.tis-kernel/
 **/.vscode/settings.json
+logs/
+**/*.ctu-info

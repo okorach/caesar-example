@@ -4,7 +4,6 @@
 #define NB_LTR ('z' - 'a' + 1)
 
 /* Computes absolute value of a signed integer */
-
 long absolute(long x)
 {
     long abs_x;
